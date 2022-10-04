@@ -6,7 +6,7 @@ import * as MOCKED_PRODUCTS from './data/products.json';
 
 @Module({
   imports: [],
-  controllers: [ ProductsController ],
+  controllers: [ProductsController],
   providers: [
     ProductsService,
     {

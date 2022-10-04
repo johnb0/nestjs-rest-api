@@ -9,7 +9,12 @@ import {
   Put,
   Res,
 } from '@nestjs/common';
-import { ProductDto, ProductIdDto, ProductRespDto, ProductUpdateDto } from './dto/product.dto';
+import {
+  ProductDto,
+  ProductIdDto,
+  ProductRespDto,
+  ProductUpdateDto,
+} from './dto/product.dto';
 import { ProductsService } from './products.service';
 import { SkipAuth } from '../../guards/skip-auth.decorator';
 
@@ -36,17 +41,25 @@ export class ProductsController {
 
     return res
       .status(HttpStatus.OK)
-      .json(`Product was successfully created.\n ${ JSON.stringify(newProduct) }`);
+      .json(
+        `Product was successfully created.\n ${JSON.stringify(newProduct)}`,
+      );
   }
 
   @Put(':id')
   @SkipAuth()
-  update(@Res() res, @Param() { id }: ProductIdDto, @Body() productData: ProductUpdateDto) {
+  update(
+    @Res() res,
+    @Param() { id }: ProductIdDto,
+    @Body() productData: ProductUpdateDto,
+  ) {
     const updatedProduct = this.productsService.update(productData, id);
 
     return res
       .status(HttpStatus.OK)
-      .json(`Product was successfully updated.\n ${ JSON.stringify(updatedProduct) }`);
+      .json(
+        `Product was successfully updated.\n ${JSON.stringify(updatedProduct)}`,
+      );
   }
 
   @Delete(':id')
@@ -56,6 +69,6 @@ export class ProductsController {
 
     return res
       .status(HttpStatus.OK)
-      .json(`Product ${ id }was successfully deleted.`);
+      .json(`Product ${id}was successfully deleted.`);
   }
 }

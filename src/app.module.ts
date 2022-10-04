@@ -12,7 +12,7 @@ import { ProductsModule } from './handlers/products/products.module';
     {
       provide: APP_GUARD,
       useClass: ApiKeyAuthGuard,
-    }
+    },
   ],
 })
 export class AppModule {}
