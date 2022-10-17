@@ -1,0 +1,24 @@
+{
+  "executionRoleArn": "arn:aws:iam::101128402148:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+      {
+          "name": "nestjs-api",
+          "image": "nestjs-api:latest",
+          "essential": true,
+          "portMappings": [
+              {
+                  "hostPort": 80,
+                  "protocol": "tcp",
+                  "containerPort": 80
+              }
+          ]
+      }
+  ],
+  "requiresCompatibilities": [
+      "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "256",
+  "memory": "512",
+  "family": "ecs-demo"
+}
