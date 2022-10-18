@@ -1,0 +1,29 @@
+{
+  "taskDefinition": "ecs-demo:1",
+  "cluster": "NestJS-API-ECS-Cluster",
+  "loadBalancers": [
+      {
+          "targetGroupArn": "arn:aws:elasticloadbalancing:eu-central-1:101128402148:targetgroup/target-group-1/d33a9e5bab413425",
+          "containerName": "nestjs-api",
+          "containerPort": 80
+      }
+  ],
+  "desiredCount": 1,
+  "launchType": "FARGATE",
+  "schedulingStrategy": "REPLICA",
+  "deploymentController": {
+      "type": "CODE_DEPLOY"
+  },
+  "networkConfiguration": {
+      "awsvpcConfiguration": {
+          "subnets": [
+              "subnet-0b04ffc742ed602d0",
+              "subnet-096f0f292f6ac4be1"
+          ],
+          "securityGroups": [
+              "sg-0a82644b9a28ba88f"
+          ],
+          "assignPublicIp": "ENABLED"
+      }
+  }
+}
