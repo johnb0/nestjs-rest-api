@@ -6,7 +6,7 @@ import { CustomExceptionFilter } from './exception-filters/custom.exception-filt
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const PORT = process.env.PORT || 3000;
+  const PORT = process.env.PORT || 4000;
   const CORS_ORIGIN = process.env.CORS_ORIGIN || '';
 
   app.useGlobalPipes(new ValidationPipe());

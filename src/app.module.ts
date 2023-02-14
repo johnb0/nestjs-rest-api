@@ -7,7 +7,18 @@ import { ApiKeyAuthGuard } from './guards/api-key-auth.guard';
 import { ProductsModule } from './handlers/products/products.module';
 
 @Module({
-  imports: [ConfigModule.forRoot(), CartsModule, ProductsModule],
+  imports: [
+    ConfigModule.forRoot({
+      envFilePath: [
+        '.env.local',
+        '.env.development',
+        '.env.production',
+        '.env',
+      ],
+    }),
+    CartsModule,
+    ProductsModule,
+  ],
   controllers: [],
   providers: [
     {
